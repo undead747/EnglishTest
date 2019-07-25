@@ -1,3 +1,41 @@
 .pagination-position{
   margin-left: 500px;
 }
+.header{
+  text-align: center;
+}
+
+.pagination-manipulate{
+  margin-top: 20px;
+}
+
+.question-title{
+  font-weight: bold;
+}
+
+.card-margin{
+  margin-top: 10px;
+}
+
+.counting-part1{
+  display: inline-block;
+  margin-top: 20px; 
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid #ccc !important;
+  width: 200px;
+}
+.setTextAlign{
+  text-align: center;
+}
+
+.time-out{
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.part1-div-margin{
+  margin-top: 40px;
+}
