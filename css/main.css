@@ -39,3 +39,16 @@
 .part1-div-margin{
   margin-top: 40px;
 }
+
+.reset-button{
+  background-color: grey;
+}
+
+.padding-button{
+ text-align: center;
+ margin-top: 5px; 
+}
+
+.btn {
+  margin-left: 5px; 
+}

@@ -1283,9 +1283,14 @@ class UI {
         for (i = 0; i < 4; i++) {
             let listChild = listTitleResult[i].content;
             const listCloneResult = []; 
-
+            
+            console.log(listChild);
+            
             let random1 = parseInt((Math.random() * (listChild.length)), 10);
             let theChoosenTwo = listChild[random1];
+            listChild.splice(random1, 1);
+            
+            console.log(listChild);
 
             let random2 = parseInt((Math.random() * (listChild.length)), 10);
             let theChoosenThree = listChild[random2];

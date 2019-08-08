@@ -291,6 +291,8 @@
              part3: "What’s the difference between the dressing style of young people and that of old people?<br/>Do the people living in the south Vietnam (warmer) wear different clothes from the people living<br/>in the north (colder)?<br/>Do you think students like to wear uniforms?<br/>When do people wear formal clothes?"
           }
        ]
+       this.btnDanger = document.getElementsByClassName('btn-danger');
+
     }
 
     Question() {
@@ -302,6 +304,7 @@
     DateTime(number) {
        return new Date().getTime() + number * 1000;
     }
+
  }
 
  function sound(src) {
@@ -335,6 +338,7 @@
 
        div.innerHTML = `
    <div class='countdown'><span id='clock'></span></div>
+   <div class="padding-button"><button type="button" class="btn btn-danger" id = "btn-stop">Stop</button><button type="button" class="btn btn-success">Play</button><button type="button" class="btn reset-button">Reset</button></div>
    <div class="card card-margin">
    <div class="card-header question-title">${question.part2Ttitle}</div>
    <div class="card-body">${question.part2Content}</div>
@@ -347,7 +351,7 @@
        $('#clock').countdown(ui1.DateTime(60))
           .on('update.countdown', function (event) {
 
-             $(this).html(event.strftime('<div class="setTextAlign">You got one minute to prepare :</div><div class="setTextAlign"><div class="counting-part1">Counting Time: <span>%H:%M:%S</span></div></div>'));
+            $(this).html(event.strftime('<div class="setTextAlign">You got one minute to prepare :</div><div class="setTextAlign"><div class="counting-part1">Counting Time: <span>%H:%M:%S</span></div></div>'));
 
           })
           .on('finish.countdown', function (event) {
@@ -372,6 +376,7 @@
     } else if (parseInt(num) === 3) {
        div.innerHTML = `
        <div class='countdown'><span id='clock'></span></div>
+       <div class="padding-button"><button type="button" class="btn btn-danger">Stop</button><button type="button" class="btn btn-success">Play</button><button type="button" class="btn reset-button">Reset</button></div>
        <div class="card card-margin">
        <div class="card-header question-title">Part 3</div>
        <div class="card-body">${question.part3}</div>
@@ -379,7 +384,7 @@
    `;
 
        $("#dynamic_content").html(div);
-       
+
        $('#clock').countdown(ui1.DateTime(240))
           .on('update.countdown', function (event) {
 
@@ -388,12 +393,34 @@
           })
           .on('finish.countdown', function (event) {
              let mySound = new sound("public/sound/1.mp3");
-             mySound.play(); 
-             
+             mySound.play();
+
              $(this).html('<div class="time-out">Time Out !</div>')
-                      .parent();
-                   $('#clock').countdown('stop');
+                .parent();
+             $('#clock').countdown('stop');
           });
     }
 
  });
+
+  
+ function eventListenters() {
+    const btnDanger = document.getElementById('btn-stop');
+    const classbtn = document.getElementsByClassName('.padding-button');  
+    const clock = document.getElementById('clock');
+
+    console.log(clock);
+    
+    console.log(btnDanger);
+    console.log(classbtn);
+
+    btnDanger.addEventListener('click',(event) => {
+      console.log(event.target); 
+      $('#clock').countdown('pause');
+    })
+ }
+
+
+ document.addEventListener('DOMContentLoaded', function () {
+   eventListenters();
+ })
